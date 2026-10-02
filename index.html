@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense &amp; Budget Visualizer</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>Expense &amp; Budget Visualizer</h1>
+
+    <!-- Error banner — shown/hidden programmatically -->
+    <div id="error-banner" class="error-banner hidden"></div>
+
+    <!-- Balance Display — Requirement 1.2 -->
+    <section id="balance-section">
+      <h2>Total Balance</h2>
+      <p id="balance-display">$0.00</p>
+    </section>
+
+    <!-- Add Transaction Form — Requirement 2, 3 -->
+    <section id="form-section">
+      <form id="transaction-form" novalidate>
+        <div class="form-group">
+          <label for="input-name">Item Name</label>
+          <input type="text" id="input-name" maxlength="100" />
+          <span class="error-msg" id="error-name"></span>
+        </div>
+        <div class="form-group">
+          <label for="input-amount">Amount</label>
+          <input type="number" id="input-amount" min="0.01" max="999999999.99" step="0.01" />
+          <span class="error-msg" id="error-amount"></span>
+        </div>
+        <div class="form-group">
+          <label for="input-category">Category</label>
+          <select id="input-category">
+            <option value="" disabled selected>Select a category</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Fun">Fun</option>
+          </select>
+          <span class="error-msg" id="error-category"></span>
+        </div>
+        <button type="submit">Add Transaction</button>
+      </form>
+    </section>
+
+    <!-- Two-column layout — Requirements 1.4, 5.1, 8.1, 8.6 -->
+    <div class="two-column-layout">
+
+      <!-- Transactions List — Requirement 5, 6 -->
+      <section id="transactions-section">
+        <h2>Transactions</h2>
+        <ul id="transaction-list"></ul>
+      </section>
+
+      <!-- Chart — Requirement 8 -->
+      <section id="chart-section">
+        <h2>Spending by Category</h2>
+        <canvas id="spending-chart"></canvas>
+        <p id="chart-empty-msg" class="hidden">No data to display.</p>
+      </section>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
